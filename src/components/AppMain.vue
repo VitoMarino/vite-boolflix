@@ -12,6 +12,7 @@ export default {
             search:{
 
             },
+        }
     },
     methods:{
         getSearch(ricerca){
@@ -23,13 +24,12 @@ export default {
             .catch(function(error) {
             console.log(error);
             })
-        };
+        },
         searchButton(text){
             console.log(text)
             this.getSearch(text)
         }
     }
-}
 }
 </script>
 

@@ -3,12 +3,12 @@ export default {
     data() {
         return {
         testo: "",
-        string: "",
+        stringa: "",
         }
     },
     methods:{
-        string(){
-            this.string
+        clean(){
+            this.stringa = ''
         }
     }
 }
@@ -16,7 +16,7 @@ export default {
 
 <template>
     <main>
-        <button @click="$emit('searchButton' testo); string">CLICK</button>
+        <button @click="$emit('searchButton'); clean">CLICK</button>
         <input type="text">
     </main>
 </template>
