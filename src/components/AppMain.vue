@@ -4,9 +4,9 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            search:[
+            search:{
 
-            ]
+            }
 
         }
     },
@@ -14,7 +14,7 @@ export default {
         getSearch(){
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=93df66e930b448fe4ba34c7efeb9d6b0&query=ritorno+al+futuro')
             .then((response) => {
-                this.search = response.data;
+                this.search = response.data.results;
                 console.log(this.search);
             })
             .catch(function(error) {
@@ -31,17 +31,17 @@ export default {
 <template>
     <main>
         <ul>
-            <li>
-                title
+            <li v-for="search in search" :key="search.id">
+                {{ search.title }}
             </li>
-            <li>
-                original_title
+            <li v-for="search in search" :key="search.id">
+                {{ search.original_title }}
             </li>
-            <li>
-                original_language
+            <li v-for="search in search" :key="search.id">
+                {{ search.original_language }}
             </li>
-            <li>
-                vote_average
+            <li v-for="search in search" :key="search.id">
+                {{ search.vote_average }}
             </li>
         </ul>
     </main>
