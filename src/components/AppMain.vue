@@ -30,17 +30,17 @@ export default {
 
 <template>
     <main>
-        <ul>
-            <li v-for="search in search" :key="search.id">
+        <ul v-for="search in search" :key="search.id">
+            <li>
                 {{ search.title }}
             </li>
-            <li v-for="search in search" :key="search.id">
+            <li>
                 {{ search.original_title }}
             </li>
-            <li v-for="search in search" :key="search.id">
+            <li>
                 {{ search.original_language }}
             </li>
-            <li v-for="search in search" :key="search.id">
+            <li>
                 {{ search.vote_average }}
             </li>
         </ul>
