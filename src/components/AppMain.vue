@@ -12,7 +12,6 @@ export default {
         getSearch(){
             axios.get('https://api.themoviedb.org/3/search/movie&api_key=93df66e930b448fe4ba34c7efeb9d6b0')
             .then((response) => {
-            this.search = response.data
             console.log();
             })
             .catch(function(error) {
