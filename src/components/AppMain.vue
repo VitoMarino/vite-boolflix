@@ -1,7 +1,12 @@
 <script>
+import MainSearch from './MainSearch.vue';
+
 import axios from 'axios';
 
 export default {
+    components:{
+        MainSearch
+    },
     data() {
         return {
             search:{
@@ -21,15 +26,19 @@ export default {
             console.log(error);
             });
         },
+        searchButton(){
+            console.log('ciao vito')
+        }
     },
     created(){
-        this.getSearch()
+        this.getSearch();
     }
 }
 </script>
 
 <template>
     <main>
+        <MainSearch @searchButton="searchButton"/>
         <ul v-for="search in search" :key="search.id">
             <li>
                 {{ search.title }}
