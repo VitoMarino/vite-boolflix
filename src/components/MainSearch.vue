@@ -2,7 +2,13 @@
 export default {
     data() {
         return {
-        
+        testo: "",
+        string: "",
+        }
+    },
+    methods:{
+        string(){
+            this.string
         }
     }
 }
@@ -10,7 +16,7 @@ export default {
 
 <template>
     <main>
-        <button @click="$emit('searchButton')">CLICK</button>
+        <button @click="$emit('searchButton' testo); string">CLICK</button>
         <input type="text">
     </main>
 </template>

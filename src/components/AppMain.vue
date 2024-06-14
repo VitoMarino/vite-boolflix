@@ -11,28 +11,25 @@ export default {
         return {
             search:{
 
-            }
-
-        }
+            },
     },
     methods:{
-        getSearch(){
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=93df66e930b448fe4ba34c7efeb9d6b0&query=ritorno+al+futuro')
+        getSearch(ricerca){
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=93df66e930b448fe4ba34c7efeb9d6b0&query=ritorno+al+futuro' + ricerca)
             .then((response) => {
                 this.search = response.data.results;
                 console.log(this.search);
             })
             .catch(function(error) {
             console.log(error);
-            });
-        },
-        searchButton(){
-            console.log('ciao vito')
+            })
+        };
+        searchButton(text){
+            console.log(text)
+            this.getSearch(text)
         }
-    },
-    created(){
-        this.getSearch();
     }
+}
 }
 </script>
 
