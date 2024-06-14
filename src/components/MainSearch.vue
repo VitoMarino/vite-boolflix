@@ -6,16 +6,13 @@ export default {
         }
     },
     methods:{
-        clean(){
-            this.testo = ''
-        }
     }
 }
 </script>
 
 <template>
     <main>
-        <button @click="$emit('searchButton', testo); clean">CLICK</button>
+        <button @click="$emit('searchButton', testo)">CLICK</button>
         <input v-model="testo" type="text">
     </main>
 </template>
