@@ -3,12 +3,11 @@ export default {
     data() {
         return {
         testo: "",
-        stringa: "",
         }
     },
     methods:{
         clean(){
-            this.stringa = ''
+            this.testo = ''
         }
     }
 }
@@ -16,8 +15,8 @@ export default {
 
 <template>
     <main>
-        <button @click="$emit('searchButton'); clean">CLICK</button>
-        <input type="text">
+        <button @click="$emit('searchButton', testo); clean">CLICK</button>
+        <input v-model="testo" type="text">
     </main>
 </template>
 
