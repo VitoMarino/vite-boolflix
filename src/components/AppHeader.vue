@@ -10,7 +10,8 @@ export default {
 
 <template>
     <header>
-        
+        <button>Clicca</button>
+        <input type="text">
     </header>
 </template>
 

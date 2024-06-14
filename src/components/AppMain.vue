@@ -4,27 +4,46 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            search:{
-            }
+            search:[
+
+            ]
+
         }
     },
     methods:{
         getSearch(){
-            axios.get('https://api.themoviedb.org/3/search/movie&api_key=93df66e930b448fe4ba34c7efeb9d6b0')
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=93df66e930b448fe4ba34c7efeb9d6b0&query=ritorno+al+futuro')
             .then((response) => {
-            console.log();
+                this.search = response.data;
+                console.log(this.search);
             })
             .catch(function(error) {
             console.log(error);
             });
         },
+    },
+    created(){
+        this.getSearch()
     }
 }
 </script>
 
 <template>
     <main>
-
+        <ul>
+            <li>
+                title
+            </li>
+            <li>
+                original_title
+            </li>
+            <li>
+                original_language
+            </li>
+            <li>
+                vote_average
+            </li>
+        </ul>
     </main>
 </template>
 
