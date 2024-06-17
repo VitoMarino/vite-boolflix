@@ -12,8 +12,8 @@ export default {
 
 <template>
     <main>
-        <button @click="$emit('searchButton', testo)">CLICK</button>
-        <input v-model="testo" type="text">
+        <button @click="$emit('searchButton', testo)" >CLICK</button>
+        <input @keyup.enter="$emit('searchButton', testo)" v-model="testo" type="text">
 </main>
 </template>
 
