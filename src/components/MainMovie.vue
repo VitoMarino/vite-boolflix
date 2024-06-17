@@ -5,9 +5,6 @@ export default {
 
         }
     },
-    methods:{
-
-    },
     props:{
         searchMovie: Object
     }
@@ -18,7 +15,7 @@ export default {
     <main>
         <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
             <li>
-                <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+                <img :src="'https://image.tmdb.org/t/p/w342/' + searchMovie.poster_path" :alt="searchMovie.title">
             </li>
             <li>
                 {{ searchMovie.title }}

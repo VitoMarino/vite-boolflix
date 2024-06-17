@@ -5,9 +5,6 @@ export default {
 
         }
     },
-    methods:{
-
-    },
     props:{
         searchSeries: Object
     }
@@ -18,7 +15,7 @@ export default {
     <main>
         <ul v-for="searchSeries in searchSeries" :key="searchSeries.id">
             <li>
-                <img :src="searchSeries.poster_path" alt="">
+                <img :src="'https://image.tmdb.org/t/p/w342/' + searchSeries.poster_path" :alt="searchSeries.title">
             </li>
             <li>
                 {{ searchSeries.original_name }}

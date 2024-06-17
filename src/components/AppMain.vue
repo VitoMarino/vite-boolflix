@@ -1,8 +1,10 @@
 <script>
+
 import axios from 'axios';
 import MainSearch from './MainSearch.vue';
 import MainMovie from './MainMovie.vue';
 import MainSeries from './MainSeries.vue';
+
 export default {
     components:{
         MainSearch,
@@ -11,12 +13,9 @@ export default {
     },
     data() {
         return {
-            searchMovie:{
-            },
+            searchMovie:{},
 
-            searchSeries:{
-
-            },
+            searchSeries:{},
         }
     },
     methods:{
