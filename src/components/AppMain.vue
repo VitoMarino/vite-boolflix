@@ -1,10 +1,9 @@
 <script>
 import axios from 'axios';
-
 import MainSearch from './MainSearch.vue';
 export default {
     components:{
-        MainSearch
+        MainSearch,
     },
     data() {
         return {
@@ -13,10 +12,6 @@ export default {
 
             searchSeries:{
 
-            },
-
-            flag:{
-            
             },
         }
     },
@@ -44,18 +39,6 @@ export default {
             console.log(error);
             })
         },
-
-        // API flag
-        getFlag(language){
-            axios.get('https://flagcdn.com/20x15/it.png' + language + ".png")
-            .then((response) => {
-                this.fleg = response;
-                console.log(this.fleg);
-            })
-            .catch(function(error) {
-            console.log(error);
-            })
-        },
         searchButton(text){
             console.log(text)
             this.getSearchMovie(text)
@@ -70,11 +53,15 @@ export default {
         <MainSearch @searchButton="searchButton"/>
         <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
             <li>
+                <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+            </li>
+            <li>
                 {{ searchMovie.title }}
             </li>
             <li>
                 {{ searchMovie.original_title }}
             </li>
+            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
             <li>
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
@@ -86,13 +73,17 @@ export default {
         <!--SERIES-->
         <ul v-for="searchSeries in searchSeries" :key="searchSeries.id">
             <li>
+                <img :src="searchSeries.poster_path" alt="">
+            </li>
+            <li>
                 {{ searchSeries.original_name }}
             </li>
+            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
             <li>
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <li>
-                {{ vote_average }}
+                {{ searchSeries.vote_average }}
             </li>
         </ul>
     </main>
