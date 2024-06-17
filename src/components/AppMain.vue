@@ -1,9 +1,13 @@
 <script>
 import axios from 'axios';
 import MainSearch from './MainSearch.vue';
+import MainMovie from './MainMovie.vue';
+import MainSeries from './MainSeries.vue';
 export default {
     components:{
         MainSearch,
+        MainMovie,
+        MainSeries
     },
     data() {
         return {
@@ -49,43 +53,9 @@ export default {
 </script>
 <template>
     <main>
-        <!--MOVIE-->
         <MainSearch @searchButton="searchButton"/>
-        <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
-            <li>
-                <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
-            </li>
-            <li>
-                {{ searchMovie.title }}
-            </li>
-            <li>
-                {{ searchMovie.original_title }}
-            </li>
-            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
-            <li>
-                <img class="img-flag" src="../img/us.png" alt="flag">
-            </li>
-            <li>
-                {{ searchMovie.vote_average }}
-            </li>
-        </ul>
-
-        <!--SERIES-->
-        <ul v-for="searchSeries in searchSeries" :key="searchSeries.id">
-            <li>
-                <img :src="searchSeries.poster_path" alt="">
-            </li>
-            <li>
-                {{ searchSeries.original_name }}
-            </li>
-            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
-            <li>
-                <img class="img-flag" src="../img/us.png" alt="flag">
-            </li>
-            <li>
-                {{ searchSeries.vote_average }}
-            </li>
-        </ul>
+        <MainMovie :searchMovie="searchMovie"/>
+        <MainSeries :searchSeries="searchSeries"/>
     </main>
 </template>
 <style lang="scss" scoped>
