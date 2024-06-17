@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 
 import MainSearch from './MainSearch.vue';
 import MainSeries from './MainSeries.vue';
@@ -13,55 +12,25 @@ export default {
     },
     data() {
         return {
-            movie:{
 
-            },
-            searchSeries:{
+            search:{},
 
-            }
+            movie:{},
+
+            series:{}
+
         }
     },
     methods:{
-        
-        // API Series
-        getSearchSeries(ricerca){
-            axios.get("https://api.themoviedb.org/3/search/tv" + ricerca)
-            .then((response) => {
-                this.searchSeries = response.data
-                console.log(this.searchSeries);
-            })
-            .catch(function(error) {
-            console.log(error);
-            })
-        },
-
-        //API Flag
-        getFlag(language){
-            axios.get("https://flagcdn.com/20x15/" + language + ".png")
-            .then((response) => {
-                this.fleg = response;
-                console.log(this.fleg);
-            })
-            .catch(function(error) {
-            console.log(error);
-            })
-        },
-        // BUTTON
-        searchButton(text){
-            console.log(text)
-            this.getSearchMovie(text)
-        }
     }
 }
 </script>
 
 <template>
     <main>
-        <MainSearch @searchButton="searchButton"/>
+        <MainSearch :search="search"/>
         <MainMovie :movie="movie"/>
-        <MainSeries/>
-        
-        
+        <MainSeries :series="series"/>
     </main>
 </template>
 

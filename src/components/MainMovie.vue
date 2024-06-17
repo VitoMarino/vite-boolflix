@@ -1,7 +1,11 @@
 <script>
+import axios from 'axios';
+import { store } from '../store.js';
+
 export default {
     data() {
         return {
+            store,
             searchMovie:{
             },
         }
@@ -10,17 +14,20 @@ export default {
         movie: Object,
     },
     methods:{
-        //API Search Movies
-        getSearchMovie(ricerca){
+            getSearchMovie(ricerca){
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=93df66e930b448fe4ba34c7efeb9d6b0&query=' + ricerca)
             .then((response) => {
                 this.searchMovie = response.data.results;
-                console.log(this.search);
+                console.log(this.searchMovie);
             })
-            .catch(function(error) {
+            .catch(function(error){
             console.log(error);
             })
         },
+        searchButton(text){
+            console.log(this.store.text)
+            this.getSearchMovie(this.store.text)
+        }
     },
     
 }

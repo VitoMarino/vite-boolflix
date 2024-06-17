@@ -1,9 +1,14 @@
 <script>
+import {store} from '../store.js';
+
 export default {
     data() {
         return {
-            testo: "",
+            store,
         }
+    },
+    props:{
+        search: Object
     },
     methods:{
     }
@@ -13,7 +18,7 @@ export default {
 <template>
     <main>
         <button @click="$emit('searchButton', testo)">CLICK</button>
-        <input v-model="testo" type="text">
+        <input v-model="store.testo" type="text">
     </main>
 </template>
 
