@@ -1,11 +1,15 @@
 <script>
-import MainSearch from './MainSearch.vue';
-
 import axios from 'axios';
+
+import MainSearch from './MainSearch.vue';
+import MainSeries from './MainSeries.vue';
+import MainMovie from './MainMovie.vue';
 
 export default {
     components:{
-        MainSearch
+        MainSearch,
+        MainSeries,
+        MainMovie
     },
     data() {
         return {
@@ -16,6 +20,10 @@ export default {
             flag:{
 
             },
+
+            searchSeries:{
+
+            }
         }
     },
     methods:{
@@ -31,7 +39,19 @@ export default {
             })
         },
         
-        // API flag
+        // API Series
+        getSearchSeries(ricerca){
+            axios.get("https://api.themoviedb.org/3/search/tv" + ricerca)
+            .then((response) => {
+                this.searchSeries = response.data
+                console.log(this.searchSeries);
+            })
+            .catch(function(error) {
+            console.log(error);
+            })
+        },
+
+        //API Flag
         getFlag(language){
             axios.get("https://flagcdn.com/20x15/" + language + ".png")
             .then((response) => {
@@ -42,9 +62,11 @@ export default {
             console.log(error);
             })
         },
+        // BUTTON
         searchButton(text){
             console.log(text)
             this.getSearch(text)
+            this.getSearchSeries(text)
         }
     }
 }
@@ -52,7 +74,9 @@ export default {
 
 <template>
     <main>
-        <MainSearch @searchButton="searchButton"/>
+        <MainSearch @searchButton="searchButton" />
+        <MainSeries @searchButton="searchButton"/>
+        <MainMovie/>
         <ul v-for="search in search" :key="search.id">
             <li>
                 {{ search.title }}

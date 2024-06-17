@@ -13,7 +13,7 @@ export default {
 <template>
     <main>
         <button @click="$emit('searchButton', testo)">CLICK</button>
-        <input v-model="testo" type="text"> 
+        <input v-model="testo" type="text">
     </main>
 </template>
 
