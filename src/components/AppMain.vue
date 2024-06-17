@@ -30,9 +30,10 @@ export default {
             console.log(error);
             })
         },
+        
         // API flag
         getFlag(language){
-            axios.get('https://flagcdn.com/20x15/it.png' + language + ".png")
+            axios.get("https://flagcdn.com/20x15/" + language + ".png")
             .then((response) => {
                 this.fleg = response;
                 console.log(this.fleg);
@@ -57,10 +58,11 @@ export default {
                 {{ search.title }}
             </li>
             <li>
-                {{ search.original_title }}
+                {{ search.original_title }}        
             </li>
+            <!--RITORNARE PER CAPIRE COME GESTIRE CON API-->
             <li>
-                {{ search.original_language }}
+                <img class="img-flag" src="../img/gb.png" alt="img">
             </li>
             <li>
                 {{ search.vote_average }}
