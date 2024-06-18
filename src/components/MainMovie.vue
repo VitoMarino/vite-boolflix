@@ -15,21 +15,24 @@ export default {
     <main>
         <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
             <li>
-                <img :src="'https://image.tmdb.org/t/p/w342/' + searchMovie.poster_path" :alt="searchMovie.title">
+                <img class="my-img-hover" :src="'https://image.tmdb.org/t/p/w342/' + searchMovie.poster_path" :alt="searchMovie.title">
             </li>
-            <li>
+            <li class="my-d-reverse">
                 <h3> Titolo: {{ searchMovie.title }} </h3>
             </li>
-            <li class="d-none-orginal-title">
+            <li class="my-d-reverse">
                 <h3> Titolo originale: {{ searchMovie.original_title }} </h3>
             </li>
-            <li>
+            <li class="my-d-reverse">
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <!--STARS-->
-            <li>
-                <i v-for="i in (Math.floor(searchMovie.vote_average / 2))" class="fa-solid fa-star color-yellow"></i>
+            <li class="my-d-reverse">
+                <i v-for="i in (Math.floor(searchMovie.vote_average / 2))" class="fa-solid fa-star my-color-yellow"></i>
                 <i v-for="i in (5 - Math.floor(searchMovie.vote_average / 2))" class="fa-regular fa-star"></i>
+            </li>
+            <li class="my-d-reverse">
+                {{ searchMovie.overview }}
             </li>
         </ul>
     </main>
@@ -42,8 +45,17 @@ export default {
         width: calc(100% / 3);
         text-align: center;
 
-        &hover{
-            
+        li.my-d-reverse{
+            display: none;
+        }
+
+        &:hover{
+            img.my-img-hover {
+                display: none;
+            }
+            li.my-d-reverse{
+                display: inline;
+            }
         }
     }
 </style>

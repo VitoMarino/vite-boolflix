@@ -24,7 +24,7 @@ export default {
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <li>
-                <i v-for="i in (Math.floor(searchSeries.vote_average / 2))" class="fa-solid fa-star color-yellow"></i>
+                <i v-for="i in (Math.floor(searchSeries.vote_average / 2))" class="fa-solid fa-star my-color-yellow"></i>
                 <i v-for="i in (5 - Math.floor(searchSeries.vote_average / 2))" class="fa-regular fa-star"></i>
             </li>
         </ul>

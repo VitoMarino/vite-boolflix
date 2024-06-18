@@ -63,5 +63,7 @@ export default {
         <MainSeries :searchSeries="searchSeries"/>
     </main>
 </template>
+
 <style lang="scss" scoped>
+
 </style>
