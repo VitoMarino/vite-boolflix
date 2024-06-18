@@ -3,6 +3,8 @@
     ul{
         display: inline-block;
         width: calc(100% / 3);
+        padding: 2rem;
+        margin: 0 auto;
         text-align: center;
     
         li.my-d-reverse{
@@ -11,7 +13,7 @@
     
         &:hover{
             img.my-img-hover {
-                display: none;
+                opacity: 0.2;
             }
             
             li.my-d-reverse{

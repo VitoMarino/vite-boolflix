@@ -13,10 +13,10 @@ export default {
 
 <template>
     <main>
-        <h2>
-            Originali Netflix
-        </h2>
         <div>
+            <h2>
+                Originali Netflix
+            </h2>
             <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
                 <!--Immagine di copertina-->
                 <li>

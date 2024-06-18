@@ -2,12 +2,22 @@
 export default {
     data() {
         return {
-            testo:''
+            testo:'',
+
+            visibileVariable: false
         }
     },
     methods:{
+        invert() {
+            console.log(this.visibileVariable);
+            if(this.visibileVariable === false){
+                this.visibileVariable = true
+            } else {
+                this.visibileVariable = false
+            };
+        }
+        }
     }
-}
 </script>
 
 <template>
@@ -39,8 +49,8 @@ export default {
 
             <ul>
                 <li class="li-display">
-                    <button @click="$emit('searchButton', testo); clean"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input @keyup.enter="$emit('searchButton', testo)" v-model="testo" type="text">
+                    <button @click="invert()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input :class="visibileVariable === false ? 'hidden' : 'visibile' " @keyup.enter="$emit('searchButton', testo)" v-model="testo" type="text">
                 </li>
                 <li class="uppercase">
                     <a href="">Bambini</a>
@@ -58,6 +68,20 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins.scss' as*;
+
+input.hidden {
+    display: none;
+}
+
+input.visibile {
+    display: inline-block;
+}
+
+button{
+    margin-right: .3rem;
+}
+
+
 //Nav Header for search
 nav{
     display: flex;
@@ -75,7 +99,7 @@ nav{
 
         a{
             color: #7b7a7a;
-            margin: .3rem;
+            margin: .4rem;
 
             &:hover{
                 color: white;
@@ -86,10 +110,6 @@ nav{
     li.li-display{
         i{
             color: white;
-        }
-
-        input{
-            
         }
     }
 
