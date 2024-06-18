@@ -37,5 +37,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+    ul{
+        display: inline-block;
+        width: calc(100% / 3);
+        text-align: center;
 
+        &hover{
+            
+        }
+    }
 </style>
