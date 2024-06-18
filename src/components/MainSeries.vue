@@ -18,14 +18,14 @@ export default {
                 <img :src="'https://image.tmdb.org/t/p/w342/' + searchSeries.poster_path" :alt="searchSeries.title">
             </li>
             <li>
-                {{ searchSeries.original_name }}
+                <h3> Titolo: {{ searchSeries.original_name }} </h3>
             </li>
-            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
             <li>
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <li>
                 {{ searchSeries.vote_average }}
+                <i class="fa-regular fa-star"></i>
             </li>
         </ul>
     </main>

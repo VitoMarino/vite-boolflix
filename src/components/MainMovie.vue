@@ -18,17 +18,18 @@ export default {
                 <img :src="'https://image.tmdb.org/t/p/w342/' + searchMovie.poster_path" :alt="searchMovie.title">
             </li>
             <li>
-                {{ searchMovie.title }}
+                <h3> Titolo: {{ searchMovie.title }} </h3>
             </li>
-            <li>
-                {{ searchMovie.original_title }}
+            <li class="d-none-orginal-title">
+                <h3> Titolo originale: {{ searchMovie.original_title }} </h3>
             </li>
-            <!--RITORNARCI PER VEDERE DI GESTIRE CON UN API-->
             <li>
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
+            <!--STARS-->
             <li>
-                {{ searchMovie.vote_average }}
+                <i v-for="i in (Math.floor(searchMovie.vote_average / 2))" class="fa-solid fa-star color-yellow"></i>
+                <i v-for="i in (5 - Math.floor(searchMovie.vote_average / 2))" class="fa-regular fa-star"></i>
             </li>
         </ul>
     </main>
