@@ -1,13 +1,14 @@
 <script>
-
 import axios from 'axios';
-import MainSearch from './MainSearch.vue';
+
+import AppHeader from './AppHeader.vue';
 import MainMovie from './MainMovie.vue';
 import MainSeries from './MainSeries.vue';
 
+
 export default {
     components:{
-        MainSearch,
+        AppHeader,
         MainMovie,
         MainSeries
     },
@@ -54,8 +55,10 @@ export default {
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </head>
+    <header>
+        <AppHeader @searchButton="searchButton"/>
+    </header>
     <main>
-        <MainSearch @searchButton="searchButton"/>
         <MainMovie :searchMovie="searchMovie"/>
         <MainSeries :searchSeries="searchSeries"/>
     </main>
