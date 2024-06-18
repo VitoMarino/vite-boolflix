@@ -48,30 +48,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    div{
-        width: 100%;
-    }
-    ul{
-        display: inline-block;
-        width: calc(100% / 3);
-        text-align: center;
+@use '../styles/partials/mixins.scss' as*;
 
-        li.my-d-reverse{
-            display: none;
-        }
-
-        &:hover{
-            img.my-img-hover {
-                display: none;
-            }
-            li.my-d-reverse{
-                color: white;
-                display: inline-block;
-                text-align: center;
-            }
-            img.img-flag{
-                display: none;
-            }
-        }
-    }
+@include MovieSeries;
 </style>

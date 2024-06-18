@@ -48,6 +48,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins.scss' as*;
+//Nav Header for search
 nav{
     display: flex;
     justify-content: space-between;
@@ -67,6 +69,7 @@ ul a{
     }
 }
 
+//IMG Logo Netflix
 img{
     margin-right: 1rem;
     width: 50px;
