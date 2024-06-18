@@ -13,6 +13,9 @@ export default {
 
 <template>
     <main>
+        <h2>
+            Originali Netflix
+        </h2>
         <div>
             <ul v-for="searchMovie in searchMovie" :key="searchMovie.id">
                 <!--Immagine di copertina-->
@@ -24,7 +27,7 @@ export default {
                     <p><strong>Titolo:</strong>{{ searchMovie.title }}</p>
                 </li>
                 <!--Titolo originale-->
-                <li class="my-d-reverse">
+                <li class="my-d-reverse my-d-none">
                     <p><strong>Titolo originale:</strong>{{ searchMovie.original_title }}</p>
                 </li>
                 <li class="my-d-reverse">
@@ -51,4 +54,10 @@ export default {
 @use '../styles/partials/mixins.scss' as*;
 
 @include MovieSeries;
+
+h2{
+    text-transform: uppercase;
+    color: white;
+    padding: 1rem;
+}
 </style>

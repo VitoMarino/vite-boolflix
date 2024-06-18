@@ -38,9 +38,18 @@ export default {
             </ul>
 
             <ul>
-                <li>
-                    <button @click="$emit('searchButton', testo)">CLICK</button>
+                <li class="li-display">
+                    <button @click="$emit('searchButton', testo); clean"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <input @keyup.enter="$emit('searchButton', testo)" v-model="testo" type="text">
+                </li>
+                <li class="uppercase">
+                    <a href="">Bambini</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-bell"></i></a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-face-smile-wink"></i></a>
                 </li>
             </ul>
         </nav>
@@ -58,20 +67,39 @@ nav{
         ul {
             display: flex;
         }
-}
 
-ul a{
-    color: #7b7a7a;
-    margin: .3rem;
+        li.uppercase{
+            text-transform: uppercase;
+            color: white;
+        }
 
-    &:hover{
-        color: white;
+        a{
+            color: #7b7a7a;
+            margin: .3rem;
+
+            &:hover{
+                color: white;
+            }
+        }
     }
-}
+
+    li.li-display{
+        i{
+            color: white;
+        }
+
+        input{
+            
+        }
+    }
 
 //IMG Logo Netflix
 img{
     margin-right: 1rem;
-    width: 50px;
+    width: 80px;
+    }
+
+    button{
+        @include button;
     }
 </style>

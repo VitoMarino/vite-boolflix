@@ -13,14 +13,24 @@
             img.my-img-hover {
                 display: none;
             }
+            
             li.my-d-reverse{
                 color: white;
                 display: inline-block;
                 text-align: center;
+            }
+
+            li.my-d-none{
+                display: none;
             }
             img.img-flag{
                 display: none;
             }
         }
     }
+}
+
+@mixin button {
+        background-color: #1b1b1b;
+        border-style: none;
 }
