@@ -118,7 +118,7 @@ nav{
 //IMG Logo Netflix
 img{
     margin-right: 1rem;
-    width: 80px;
+    width: 125px;
     }
 
     button{
