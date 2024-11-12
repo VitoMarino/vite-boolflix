@@ -37,12 +37,6 @@ export default {
                     <a href="">Film</a>
                 </li>
                 <li>
-                    <a href="">Originali</a>
-                </li>
-                <li>
-                    <a href="">Aggiunti di recente</a>
-                </li>
-                <li>
                     <a href="">La mia lista</a>
                 </li>
             </ul>

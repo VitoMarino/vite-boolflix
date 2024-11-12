@@ -17,8 +17,8 @@ export default {
 
 <template>
   <AppHeader/>
-
   <AppMain/>
+  <router-view></router-view>
 </template>
 
 <!--Se non inserisco lo scope TUTTE le regole saranno applicate a TUTTA la mia applicazione. 
