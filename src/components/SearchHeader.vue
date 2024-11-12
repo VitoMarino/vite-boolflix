@@ -4,7 +4,22 @@ export default {
         return {
             testo:'',
 
-            visibileVariable: false
+            visibileVariable: false,
+
+            navLinks: [
+                {
+                    label: 'Home',
+                    name: 'home',
+                },
+                {
+                    label: 'Film',
+                    name: 'film'
+                },
+                {
+                    label: 'Serie Tv',
+                    name: 'series'
+                }
+            ]
         }
     },
     methods:{
@@ -27,17 +42,10 @@ export default {
                 <li>
                     <img src="../img/Netflix_2015_logo.svg.png" alt="Netflix-logo"/>
                 </li>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">Serie Tv</a>
-                </li>
-                <li>
-                    <a href="">Film</a>
-                </li>
-                <li>
-                    <a href="">La mia lista</a>
+                <li v-for="navLink in navLinks">
+                    <router-link :to="{name: navLink.name}">
+                        {{ navLink.label }}
+                    </router-link>
                 </li>
             </ul>
 
