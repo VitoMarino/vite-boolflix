@@ -4,6 +4,8 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            hoveredIndex: null,
+
             Movies: {},
 
             Series: {},
@@ -47,26 +49,29 @@ export default {
     </h2>
 
     <!--FILM-->
-    <div v-if="Movies.length > 0">
-        <ul v-for="Movie in Movies" :key="Movie.id">
+    <div v-if="Movies.length > 0" class="movie-list">
+        <ul v-for="(Movie, index) in Movies" :key="Movie.id"
+            :class="{hidden: hoveredIndex !== null && hoveredIndex !== index}"
+            @mouseenter="hoveredIndex = index"
+            @mouseleave="hoveredIndex=null">
             <!--Immagine di copertina-->
             <li>
-                <img class="my-img-hover" :src="'https://image.tmdb.org/t/p/w342/' + Movie.poster_path"
+                <img class="movie-poster" :src="'https://image.tmdb.org/t/p/w342/' + Movie.poster_path"
                     :alt="Movie.title">
             </li>
             <!--Titolo-->
-            <li class="my-d-reverse">
+            <li class="movie-description">
                 <p><strong>Titolo:</strong>{{ Movie.title }}</p>
             </li>
             <!--Titolo originale-->
-            <li class="my-d-reverse my-d-none">
+            <li  class="movie-description">
                 <p><strong>Titolo originale:</strong>{{ Movie.original_title }}</p>
             </li>
-            <li class="my-d-reverse">
+            <li  class="movie-description">
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <!--STARS-->
-            <li class="my-d-reverse">
+            <li  class="movie-description">
                 <p> <strong>Voto:</strong>
                     <i v-for="i in (Math.floor(Movie.vote_average / 2))"
                         class="fa-solid fa-star my-color-yellow"></i>
@@ -74,31 +79,34 @@ export default {
                 </p>
             </li>
             <!--Overview-->
-            <li class="my-d-reverse">
+            <li  class="movie-description">
                 <p><strong>Overview:</strong>{{ Movie.overview }}</p>
             </li>
         </ul>
 
         <!--SERIE TV-->
-        <ul v-for="Serie in Series" :key="Serie.id">
+        <ul v-for="(Serie, index) in Series" :key="Serie.id"
+            :class="{hidden: hoveredIndex !== null && hoveredIndex !== index}"
+            @mouseenter="hoveredIndex = index"
+            @mouseleave="hoveredIndex=null">
             <!--Immagine di copertina-->
             <li>
-                <img class="my-img-hover" :src="'https://image.tmdb.org/t/p/w342/' + Serie.poster_path"
+                <img class="movie-poster" :src="'https://image.tmdb.org/t/p/w342/' + Serie.poster_path"
                     :alt="Serie.title">
             </li>
             <!--Titolo-->
-            <li class="my-d-reverse">
+            <li class="movie-description">
                 <p><strong>Titolo:</strong>{{ Serie.title }}</p>
             </li>
             <!--Titolo originale-->
-            <li class="my-d-reverse my-d-none">
+            <li class="movie-description">
                 <p><strong>Titolo originale:</strong>{{ Serie.original_title }}</p>
             </li>
-            <li class="my-d-reverse">
+            <li class="movie-description">
                 <img class="img-flag" src="../img/us.png" alt="flag">
             </li>
             <!--STARS-->
-            <li class="my-d-reverse">
+            <li class="movie-description">
                 <p> <strong>Voto:</strong>
                     <i v-for="i in (Math.floor(Serie.vote_average / 2))"
                         class="fa-solid fa-star my-color-yellow"></i>
@@ -106,7 +114,7 @@ export default {
                 </p>
             </li>
             <!--Overview-->
-            <li class="my-d-reverse">
+            <li class="movie-description">
                 <p><strong>Overview:</strong>{{ Serie.overview }}</p>
             </li>
         </ul>
@@ -119,7 +127,8 @@ export default {
 @include MovieSeries;
 
 h2 {
-    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
     margin-bottom: 1.5rem;
     color: white;
     text-transform: uppercase;
