@@ -1,42 +1,69 @@
 //Usato per Movie e Series
-@mixin MovieSeries{
-    ul{
+@mixin MovieSeries {
+
+    /* Stile base */
+    .movie-list {
         display: inline-block;
-        width: calc(100% / 3);
         padding: 2rem;
         margin: 0 auto;
         text-align: center;
-    
-        li.my-d-reverse{
-            display: none;
-        }
-    
-        &:hover{
-            img.my-img-hover {
-                opacity: 0.2;
-                transition: transform 2s ease, background-color 2s ease;
-                transform: scale(1.2);
+    }
 
-                
-            }
-            
-            li.my-d-reverse{
-                color: white;
-                display: inline-block;
-                text-align: center;
-            }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
 
-            li.my-d-none{
-                display: none;
-            }
-            img.img-flag{
-                display: none;
-            }
+    /* Nascondi le locandine NON in hover */
+    .hidden {
+        opacity: 0;
+        /* Rende invisibile gli elementi NON in hover */
+        pointer-events: none;
+        /* Disabilita l'interazione */
+        transition: opacity 0.3s ease;
+    }
+
+    /* Stile per locandine */
+    .movie-poster {
+        width: 300px;
+        /* Regola la larghezza dell'immagine */
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        /* Effetto hover */
+    }
+
+    .movie-poster:hover {
+        transform: scale(1.05);
+        /* Ingrandisce leggermente l'immagine in hover */
+    }
+
+    /* Stile per il testo della descrizione */
+    .movie-list {
+        position: relative;
+
+        &:hover .movie-description {
+            opacity: 1;
+            pointer-events: auto;
         }
+    }
+
+    .movie-description {
+        display: block; //Non usare display: none per la transizioni
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        color: white;
+        margin-top: 15px;
+    }
+
+    .star-yellow {
+        color: yellow;
     }
 }
 
 @mixin button {
-        background-color: #1b1b1b;
-        border-style: none;
+    background-color: #1b1b1b;
+    border-style: none;
 }

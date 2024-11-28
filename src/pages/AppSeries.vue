@@ -4,6 +4,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            hoveredIndex: null,
             Series: {},
         }
     },
@@ -27,51 +28,57 @@ export default {
 </script>
 
 <template>
-    <h2>
-        Serie tv
-    </h2>
-    <div>
-        <!--SERIE TV-->
-        <ul v-for="Serie in Series" :key="Serie.id">
-            <!--Immagine di copertina-->
-            <li>
-                <img class="my-img-hover" :src="'https://image.tmdb.org/t/p/w342/' + Serie.poster_path"
-                    :alt="Serie.title">
-            </li>
-            <!--Titolo-->
-            <li class="my-d-reverse">
-                <p><strong>Titolo:</strong>{{ Serie.title }}</p>
-            </li>
-            <!--Titolo originale-->
-            <li class="my-d-reverse my-d-none">
-                <p><strong>Titolo originale:</strong>{{ Serie.original_title }}</p>
-            </li>
-            <li class="my-d-reverse">
-                <img class="img-flag" src="../img/us.png" alt="flag">
-            </li>
-            <!--STARS-->
-            <li class="my-d-reverse">
-                <p> <strong>Voto:</strong>
-                    <i v-for="i in (Math.floor(Serie.vote_average / 2))"
-                        class="fa-solid fa-star my-color-yellow"></i>
-                    <i v-for="i in (5 - Math.floor(Serie.vote_average / 2))" class="fa-regular fa-star"></i>
-                </p>
-            </li>
-            <!--Overview-->
-            <li class="my-d-reverse">
-                <p><strong>Overview:</strong>{{ Serie.overview }}</p>
-            </li>
-        </ul>
-    </div>
+        <h2>
+            Serie tv
+        </h2>
+        <div class="movie-list">
+            <!--SERIE TV-->
+            <ul v-for="(Serie, index) in Series" :key="Serie.id"
+            :class="{hidden: hoveredIndex !== null && hoveredIndex !== index}"
+            @mouseenter="hoveredIndex = index"
+            @mouseleave="hoveredIndex=null"
+            >
+                <!--Immagine di copertina-->
+                <li>
+                    <img class="movie-poster" :src="'https://image.tmdb.org/t/p/w342/' + Serie.poster_path"
+                        :alt="Serie.title">
+                </li>
+                <!--Titolo-->
+                <li class="movie-description">
+                    <p><strong>Titolo:</strong>{{ Serie.title }}</p>
+                </li>
+                <!--Titolo originale-->
+                <li class="movie-description">
+                    <p><strong>Titolo originale:</strong>{{ Serie.original_title }}</p>
+                </li>
+                <li class="movie-description">
+                    <img class="img-flag" src="../img/us.png" alt="flag">
+                </li>
+                <!--STARS-->
+                <li class="movie-description">
+                    <p> <strong>Voto:</strong>
+                        <i v-for="i in (Math.floor(Serie.vote_average / 2))"
+                            class="fa-solid fa-star my-color-yellow"></i>
+                        <i v-for="i in (5 - Math.floor(Serie.vote_average / 2))" class="fa-regular fa-star"></i>
+                    </p>
+                </li>
+                <!--Overview-->
+                <li class="movie-description">
+                    <p><strong>Overview:</strong>{{ Serie.overview }}</p>
+                </li>
+            </ul>
+        </div>
 </template>
 
 <style lang="scss" scoped>
+
 @use '../styles/partials/mixins.scss' as*;
 
 @include MovieSeries;
 
 h2 {
-    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
     margin-bottom: 1.5rem;
     color: white;
     text-transform: uppercase;
