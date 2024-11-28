@@ -32,7 +32,8 @@ export default {
                 Quando togli il mouse, hoveredIndex torna a null.
                 La classe hidden non si applica più a nessuna locandina, e tutte tornano visibili.-->
             <ul v-for="(movie, index) in searchMovie" :key="movie.id"
-                :class="{ hidden: hoveredIndex !== null && hoveredIndex !== index }" @mouseenter="hoveredIndex = index"
+                :class="{ hidden: hoveredIndex !== null && hoveredIndex !== index }" 
+                @mouseenter="hoveredIndex = index"
                 @mouseleave="hoveredIndex = null">
                 <!-- Immagine di copertina -->
                 <li>
