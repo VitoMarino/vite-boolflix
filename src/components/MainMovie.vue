@@ -28,7 +28,7 @@ export default {
             3. Effetto Visivo:
                 La locandina con index = 2 rimane visibile.
                 Tutte le altre hanno opacity: 0 e scompaiono.
-            4.Mouse Fuori dalla Locandina:
+            4. Mouse Fuori dalla Locandina:
                 Quando togli il mouse, hoveredIndex torna a null.
                 La classe hidden non si applica più a nessuna locandina, e tutte tornano visibili.-->
             <ul v-for="(movie, index) in searchMovie" :key="movie.id"
